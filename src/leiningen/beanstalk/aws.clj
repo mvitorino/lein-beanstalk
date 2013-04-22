@@ -226,8 +226,11 @@
   (if-let [env (get-running-env project name)]
     (update-environment project env options)
     (create-environment project options))
-  (let [env (poll-until ready? #(get-env project name))]
-    (println " Done")
+  (let [start (java.util.Date.)
+        env (poll-until ready? #(get-env project name))]
+    (println " Done (" (int (/ (- (.getTime (java.util.Date.))
+                                  (.getTime start)) 1000))
+             "secs)")
     (println "Environment deployed at:" (.getCNAME env))))
 
 (defn terminate-environment
