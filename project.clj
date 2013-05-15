@@ -6,7 +6,7 @@
                  [lein-ring "0.8.3"]]
   :eval-in-leiningen true
   :plugins [[s3-wagon-private "1.1.2"]]
-  :repositories [["private" {:url "s3p://com.blue.mvn/releases"
-                             :username :env/AWS_ACCESS_KEY
-                             :passphrase :env/AWS_SECRET_KEY}]]
+  :deploy-repositories [["private" {:url "s3p://com.blue.mvn/releases"
+                                    :username :env/AWS_ACCESS_KEY
+                                    :passphrase :env/AWS_SECRET_KEY}]]
 )
